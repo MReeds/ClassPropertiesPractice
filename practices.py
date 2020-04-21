@@ -20,7 +20,7 @@ class Student():
 
     @property
     def full_name(self):
-        full_name = f"{self.firstName} {self.lastName}"
+        full_name = f"{self.first_name} {self.last_name}"
         return full_name.title()
 
     def __repr__(self):
@@ -32,9 +32,8 @@ class Student():
 
     @first_name.setter
     def first_name(self, firstName):
-        self.__first_name = firstName
-        if type(firstName) == int:
-            pass
+        if type(firstName) is str:
+            self.__first_name = firstName
         else:
             raise TypeError("Name must be valid characters")
 
@@ -44,9 +43,8 @@ class Student():
 
     @last_name.setter
     def last_name(self, lastName):
-        self.__last_name = lastName
         if type(lastName) == str:
-            print("all good")
+            self.__last_name = lastName
         else:
             raise TypeError("Name must be valid characters")
 
@@ -56,9 +54,8 @@ class Student():
 
     @age.setter
     def age(self, inputAge):
-        self.__age = inputAge
-        if type(inputAge) == int:
-            pass
+        if type(inputAge) is int:
+            self.__age = inputAge
         else:
             raise TypeError("Age needs to be a number")
 
@@ -72,8 +69,10 @@ class Student():
 
 
 mike = Student()
-mike.firstName = "Mike"
-mike.lastName = "Jones"
+mike.first_name = "Bob"
+mike.last_name = "Jones"
 mike.age = 30
 mike.cohortNumber = 38
-print(mike)
+print(mike.full_name)
+
+# print(dir(Student))
